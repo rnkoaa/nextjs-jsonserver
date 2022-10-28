@@ -1,13 +1,13 @@
-import Link from "next/link";
-import NavLink from "./nav-link"
+// import Link from "next/link";
+// import NavLink from "./nav-link"
 
-/*            <Link href="/">Home</Link>
-            <Link href="/posts">Posts</Link>
-            <Link href="/todos">Todos</Link>
-            <Link href="/albums">Albums</Link>
-            */
+import NavLink from "./nav-link";
 
-export default function RootLayout({ children}: {children: React.ReactNode}) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <html>
       <head>
@@ -19,7 +19,7 @@ export default function RootLayout({ children}: {children: React.ReactNode}) {
             <NavLink href="/">Home</NavLink>
             <NavLink href="/posts">Posts</NavLink>
             <NavLink href="/todos">Todos</NavLink>
-            <NavLink href="/albums">Albums</NavLink>
+             {/*  <NavLink href="/albums">Albums</NavLink>*/}
           </nav>
         </header>
 
