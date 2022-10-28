@@ -13,13 +13,26 @@ const getPosts = async () => {
   return postRes.json();
 };
 
+const getUsers = async () => {
+  const res = await fetch("https://jsonplaceholder.typicode.com/users")
+  return res.json()
+}
+
 const Page = () => {
 
-  const posts = use(getPosts());
-  console.log(posts.length)
+  // const users = await getUsers()
+  const users = use(getUsers())
+  // const posts = use(getPosts());
+  console.log(users)
   return (
     <>
-
+<ul>
+  {users.map((u) => (
+  <li key={u.id}>
+    <div>{u.id} {u.name} -> {u.username}</div>
+    </li>
+  ))}
+</ul>
 
     </>
   );
