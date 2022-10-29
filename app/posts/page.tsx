@@ -26,13 +26,13 @@ const Page = () => {
   console.log(users)
   return (
     <>
-<ul>
-  {users.map((u) => (
-  <li key={u.id}>
-    <div>{u.id} {u.name} -> {u.username}</div>
-    </li>
-  ))}
-</ul>
+      <ul>
+        {users.map((u) => (
+          <li key={u.id}>
+            <div>{u.id} {u.name} -> {u.username}</div>
+          </li>
+        ))}
+      </ul>
 
     </>
   );

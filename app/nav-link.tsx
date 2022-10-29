@@ -19,7 +19,9 @@ export default function NavLink({
 
   // console.log(`Href ${href}, active ${active}, segment ${segment}`);
   return (
-    <Link className={active ? "underline" : ""} href={href}>
+              // <a className="p-2 link-secondary" href="#">World</a>
+    // <Link className={active ? "underline" : ""} href={href}>
+    <Link className="p-2 link-secondary" href={href}>
       {children}
     </Link>
   );
