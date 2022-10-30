@@ -1,6 +1,8 @@
 import NavLink from "./nav-link";
 import "../styles/globals.css";
 
+import "bootstrap-icons/font/bootstrap-icons.css"
+
 export default function RootLayout({
   children,
 }: {
@@ -13,7 +15,7 @@ export default function RootLayout({
       </head>
       <body>
         <div className="container">
-          <div className="nav-scroller py-1 mb-2 col-lg-8 mx-auto py-md-5">
+          <div className="nav-scroller py-1 mb-2 col-lg-10 mx-auto py-md-5">
             <nav className="nav d-flex">
               <NavLink href="/">Home</NavLink>
               <NavLink href="/users">Users</NavLink>
@@ -22,12 +24,13 @@ export default function RootLayout({
             </nav>
           </div>
         </div>
-        <div className="col-lg-8 mx-auto p-4 py-md-5">
+        <div className="col-lg-10 mx-auto p-4 py-md-5">
           <main>
-            <div className="row g-5">
-              <div className="col-md-4">{children}</div>
-              <div className="col-md-8"></div>
-            </div>
+            {children}
+            {/* <div className="row g-5"> */}
+            {/*   <div className="col-md-4">{children}</div> */}
+            {/*   <div className="col-md-8"></div> */}
+            {/* </div> */}
 
             {/* <h1>Get started with Bootstrap</h1>
             <p className="fs-5 col-md-8">Quickly and easily get started with Bootstrap's compiled, production-ready files with this barebones example featuring some basic HTML and helpful links. Download all our examples to get started.</p>

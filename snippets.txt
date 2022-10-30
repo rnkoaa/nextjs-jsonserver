@@ -1,0 +1,43 @@
+BS5 canvas
+https://library.livecanvas.com/sections/
+
+-- Side bar:
+https://codepen.io/blcveen/pen/jwMdrX
+
+-- users 
+https://www.bootdey.com/snippets/view/light-user-list
+https://www.bootdey.com/snippets/view/Contacts-Grid-Cards
+https://www.bootdey.com/snippets/view/Contacts-page
+
+-- user detail
+https://www.bootdey.com/snippets/view/bs5-profile-content
+https://www.bootdey.com/snippets/view/profile-with-contact-information
+https://www.bootdey.com/snippets/view/user-profile-bio-graph-and-total-sales
+https://www.bootdey.com/snippets/view/view-user-information
+
+-- todos
+https://www.bootdey.com/snippets/view/notes-dashboard
+
+
+--
+https://www.bootdey.com/snippets/view/crm-clients
+
+
+/users
+  /todos
+  /posts
+    /comments
+  /albums
+    /photos
+
+All HTTP methods are supported. You can use http or https for your requests.
+
+GET	/posts
+GET	/posts/1
+GET	/posts/1/comments
+GET	/comments?postId=1
+POST	/posts
+PUT	/posts/1
+PATCH	/posts/1
+DELETE	/posts/1
+
