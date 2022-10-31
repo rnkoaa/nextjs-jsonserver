@@ -82,7 +82,7 @@ export default function Page() {
                 data-bs-target=".add-new"
                 className="btn btn-primary"
               >
-                <i class="bi bi-plus me-1"></i> Add New
+                <i className="bi bi-plus me-1"></i> Add New
               </a>
             </div>
             <div className="dropdown">

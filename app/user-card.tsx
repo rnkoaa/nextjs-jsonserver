@@ -63,7 +63,7 @@ const UserCard = ({ user }: UserCardProps) => {
               {user.email}
             </p>
             <p className="text-muted mb-0 mt-2">
-              <i class="bi bi-geo-alt-fill font-size-15 align-middle pe-2 text-primary"></i>{" "}
+              <i className="bi bi-geo-alt-fill font-size-15 align-middle pe-2 text-primary"></i>{" "}
               52 Ilchester MYBSTER 9WX
             </p>
           </div>
