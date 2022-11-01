@@ -109,4 +109,4 @@ const UserTeamMembersCard = () => {
   );
 };
 
-export default UserTeamMembersCard
+export default UserTeamMembersCard;
