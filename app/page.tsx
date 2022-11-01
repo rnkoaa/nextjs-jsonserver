@@ -3,30 +3,7 @@ import "./styles.module.css";
 import UserCard from "./user-card";
 import UserPagination from "./user-pagination";
 
-export interface Address {
-  string: string;
-  suite?: string;
-  city: string;
-  zipcode: string;
-  geo: Map<string, string>;
-}
-
-export interface Company {
-  name: string;
-  catchPhrase?: string;
-  bs?: string;
-}
-
-export interface User {
-  id: number;
-  name: string;
-  username: string;
-  email: string;
-  address?: Address;
-  phone?: string;
-  company?: Company;
-}
-
+import { User } from "../types";
 const getUsers = async (): Promise<User[]> => {
   const userData = await fetch("http://localhost:3000/api/users");
   return userData.json();
