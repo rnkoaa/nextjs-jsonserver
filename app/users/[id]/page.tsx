@@ -2,6 +2,9 @@ import './styles.css'
 
 import PostForm from './post-form'
 import ThreadedComments from './threaded-comments';
+import CommentWithImage from './comment-with-image';
+import CommentWithVideo from './comment-with-video';
+import LoadMoreComments from './load-more-comments';
 
 const Page = () => {
   return (
@@ -335,44 +338,9 @@ const Page = () => {
               {<PostForm />}
 
               {<ThreadedComments />}
-              <div className="border border-light p-2 mb-3">
-                <div className="d-flex align-items-start">
-                  <img className="me-2 avatar-sm rounded-circle" src="https://bootdey.com/img/Content/avatar/avatar3.png" alt="Generic placeholder image" />
-                  <div className="w-100">
-                    <h5 className="m-0">Jeremy Tomlinson</h5>
-                    <p className="text-muted"><small>about 2 minuts ago</small></p>
-                  </div>
-                </div>
-                <p>Story based around the idea of time lapse, animation to post soon!</p>
-
-                <img src="https://via.placeholder.com/800x540/FF7F50/000000" alt="post-img" className="rounded me-1" height="60" />
-                <img src="https://via.placeholder.com/800x540/FF7F50/000000" alt="post-img" className="rounded me-1" height="60" />
-                <img src="https://via.placeholder.com/800x540/FF7F50/000000" alt="post-img" className="rounded" height="60" />
-
-                <div className="mt-2">
-                  <a href="javascript: void(0);" className="btn btn-sm btn-link text-muted"><i className="mdi mdi-reply"></i> Reply</a>
-                  <a href="javascript: void(0);" className="btn btn-sm btn-link text-muted"><i className="mdi mdi-heart-outline"></i> Like</a>
-                  <a href="javascript: void(0);" className="btn btn-sm btn-link text-muted"><i className="mdi mdi-share-variant"></i> Share</a>
-                </div>
-              </div>
-
-              <div className="border border-light p-2 mb-3">
-                <div className="d-flex align-items-start">
-                  <img className="me-2 avatar-sm rounded-circle" src="https://bootdey.com/img/Content/avatar/avatar6.png" alt="Generic placeholder image" />
-                  <div className="w-100">
-                    <h5 className="m-0">Jeremy Tomlinson</h5>
-                    <p className="text-muted"><small>15 hours ago</small></p>
-                  </div>
-                </div>
-                <p>The parallax is a little odd but O.o that house build is awesome!!</p>
-
-                <iframe src="https://player.vimeo.com/video/87993762" height="300" className="img-fluid border-0"></iframe>
-              </div>
-
-              <div className="text-center">
-                <a href="javascript:void(0);" className="text-danger">
-                  <i className="mdi mdi-spin mdi-loading me-1"></i> Load more </a>
-              </div>
+              {<CommentWithImage />}
+              {<CommentWithVideo />}
+              {<LoadMoreComments />}
             </div>
           </div>
 
