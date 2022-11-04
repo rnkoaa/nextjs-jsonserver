@@ -1,16 +1,16 @@
-import { Db } from "../db";
 import { describe, expect, test } from "@jest/globals";
-import { Album } from "../users";
+import { Database } from "../../src/db.service";
+import {Album} from "../../src/shared/album.model"
 
 describe("AlbumService - ", () => {
   test("load all albums from database", async () => {
-    const db = new Db();
+    const db = new Database();
     await db.onLoad();
     expect(db.albums!.findAll().length).toEqual(100);
   });
 
   test("non existent album will return null", async () => {
-    const db = new Db();
+    const db = new Database();
     await db.onLoad();
 
 
@@ -19,7 +19,7 @@ describe("AlbumService - ", () => {
   });
 
   test("load an album from database given its id", async () => {
-    const db = new Db();
+    const db = new Database();
     await db.onLoad();
 
     const expectedAlbum: Album = {
@@ -34,7 +34,7 @@ describe("AlbumService - ", () => {
   });
 
   test("load photos for an album from database given its id", async () => {
-    const db = new Db();
+    const db = new Database();
     await db.onLoad();
 
     const photos = db.albums!.findAlbumPhotos(1);

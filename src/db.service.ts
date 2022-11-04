@@ -1,17 +1,26 @@
 import { promises as fs } from "fs";
 import path from "path";
-
 import { AlbumService } from "./album.service";
-import { CommentService } from "./comment.service";
+import {CommentService} from './comment.service'
 import { PhotoService } from "./photo.service";
+import { PostService } from "./post.service";
+import { TodoService } from "./todo.service";
+import { UserService } from "./user.service";
+import { User } from "./shared/user.model";
+import {Album} from './shared/album.model'
+import {Comment} from './shared/comment.model'
+import {Photo} from './shared/photo.model'
+import {Post} from './shared/post.model'
+import {Todo} from './shared/todo.model'
+
 
 export class Database {
-  private readonly albums?: AlbumService;
-  private readonly comments?: CommentService;
-  private readonly photos?: PhotoService;
-  private readonly posts?: PostService;
-  private readonly todos?: TodoService;
-  private readonly users?: UserService;
+  albums?: AlbumService;
+  comments?: CommentService;
+  photos?: PhotoService;
+  posts?: PostService;
+  todos?: TodoService;
+  users?: UserService;
 
   constructor() {}
   async onLoad(): Promise<void> {

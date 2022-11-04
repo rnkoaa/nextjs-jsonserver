@@ -1,16 +1,16 @@
-import { Db } from "../db";
+import { Database } from "../../src/db.service";
 import { describe, expect, test } from "@jest/globals";
-import { Comment } from "../users";
+import {Comment} from "../../src/shared/comment.model"
 
 describe("CommentService - ", () => {
   test("load all comments from database", async () => {
-    const db = new Db();
+    const db = new Database();
     await db.onLoad();
     expect(db.comments!.findAll().length).toEqual(500);
   });
 
   test("non existent comment will return null", async () => {
-    const db = new Db();
+    const db = new Database();
     await db.onLoad();
 
     const comment = db.comments!.findById(1000000);
@@ -18,7 +18,7 @@ describe("CommentService - ", () => {
   });
 
   test("load an comment from database given its id", async () => {
-    const db = new Db();
+    const db = new Database();
     await db.onLoad();
 
     const expectedComment: Comment = {
@@ -35,7 +35,7 @@ describe("CommentService - ", () => {
   });
 
   test("load comments for an comment from database given its id", async () => {
-    const db = new Db();
+    const db = new Database();
     await db.onLoad();
 
     const comments = db.comments!.findByPost(1);

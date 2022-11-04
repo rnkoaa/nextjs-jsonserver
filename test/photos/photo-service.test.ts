@@ -1,16 +1,16 @@
-import { Db } from "../db";
 import { describe, expect, test } from "@jest/globals";
-import { Photo } from "../users";
+import { Database } from "../../src/db.service";
+import {Photo} from "../../src/shared/photo.model"
 
 describe("PhotoService - ", () => {
   test("load all photos from database", async () => {
-    const db = new Db();
+    const db = new Database();
     await db.onLoad();
     expect(db.photos!.findAll().length).toEqual(5000);
   });
 
   test("non existent photo will return null", async () => {
-    const db = new Db();
+    const db = new Database();
     await db.onLoad();
 
     const photo = db.photos!.findById(1000000);
@@ -18,7 +18,7 @@ describe("PhotoService - ", () => {
   });
 
   test("load an photo from database given its id", async () => {
-    const db = new Db();
+    const db = new Database();
     await db.onLoad();
 
     const expectedPhoto: Photo = {
@@ -35,7 +35,7 @@ describe("PhotoService - ", () => {
   });
 
   test("load photos for an photo from database given its id", async () => {
-    const db = new Db();
+    const db = new Database();
     await db.onLoad();
 
     const photos = db.photos!.findForAlbum(1);

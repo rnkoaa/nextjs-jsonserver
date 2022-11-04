@@ -29,4 +29,3 @@ export class CommentService {
     return this.commentData.filter((c) => c.postId === postId);
   }
 }
-

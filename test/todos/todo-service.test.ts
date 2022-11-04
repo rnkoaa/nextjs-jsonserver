@@ -1,26 +1,25 @@
 
-import { Db } from "../db";
 import { describe, expect, test } from "@jest/globals";
-import { Todo } from "../users";
+import { Database } from "../../src/db.service";
+import {Todo} from "../../src/shared/todo.model"
 
 describe("TodoService - ", () => {
   test("load all todos from database", async () => {
-    const db = new Db();
+    const db = new Database();
     await db.onLoad();
     expect(db.todos!.findAll().length).toEqual(200);
   });
 
   test("non existent todo will return null", async () => {
-    const db = new Db();
+    const db = new Database();
     await db.onLoad();
-
 
     const todo = db.todos!.findById(1000000);
     expect(todo).toBeNull();
   });
 
   test("load an todo from database given its id", async () => {
-    const db = new Db();
+    const db = new Database();
     await db.onLoad();
 
     const expectedTodo: Todo = {
