@@ -1,7 +1,7 @@
 import { database } from "../../../../db";
 
 import { NextApiRequest, NextApiResponse } from "next";
-import { Todo } from "../../../../../../src/shared/todo.model";
+import { Todo } from "../../../../../../src";
 import { ErrorMessage } from "../../../../../shared";
 
 export default async function handler(
