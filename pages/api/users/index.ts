@@ -1,15 +1,16 @@
-import path from "path";
-import { promises as fs } from "fs";
 
-import { User } from "../../../types";
+import { database } from "../db";
 import { NextApiRequest, NextApiResponse } from "next";
+import { User } from "../../../src/shared/user.model";
 
 export default async function handler(
   _: NextApiRequest,
   res: NextApiResponse<User[]>
 ) {
-  const jsonDirectory = path.join(process.cwd(), "data");
-  const fileContents = await fs.readFile(jsonDirectory + "/users.json", "utf8");
-  const users = JSON.parse(fileContents);
+  if (!database.initialized) {
+    console.log("loading database")
+    await database.onLoad();
+  }
+  const users = database.users!.findAll();
   res.status(200).json(users);
 }

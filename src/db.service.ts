@@ -15,6 +15,7 @@ import {Todo} from './shared/todo.model'
 
 
 export class Database {
+  initialized: boolean
   albums?: AlbumService;
   comments?: CommentService;
   photos?: PhotoService;
@@ -22,7 +23,10 @@ export class Database {
   todos?: TodoService;
   users?: UserService;
 
-  constructor() {}
+  constructor() {
+    this.initialized = false
+  }
+
   async onLoad(): Promise<void> {
     const userData: User[] = await this._loadData<User>("users");
     const albumData: Album[] = await this._loadData<Album>("albums");
@@ -41,6 +45,7 @@ export class Database {
       this.posts!,
       this.todos!
     );
+    this.initialized = true
   }
 
   private async _loadData<T>(context: string): Promise<T[]> {
