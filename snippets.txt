@@ -1,3 +1,6 @@
+[Import/Export] cleanup
+
+https://stackoverflow.com/questions/55168751/import-multiple-named-exports-of-module-into-a-single-object
 https://www.paigeniedringhaus.com/blog/how-to-unit-test-next-js-api-routes-with-typescript
 
 // https://dev.to/maciekgrzybek/setup-next-js-with-typescript-jest-and-react-testing-library-28g5

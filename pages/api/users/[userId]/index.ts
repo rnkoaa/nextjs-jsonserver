@@ -2,11 +2,7 @@ import { database } from "../../db";
 
 import { NextApiRequest, NextApiResponse } from "next";
 import { User } from "../../../../src/shared/user.model";
-
-interface ErrorMessage {
-  message: string;
-  code: number;
-}
+import { ErrorMessage } from "../../../shared";
 
 export default async function handler(
   req: NextApiRequest,
@@ -15,13 +11,20 @@ export default async function handler(
   if (!database.initialized) {
     await database.onLoad();
   }
-  const { userId } = req.query;
+  const userIdParam: string = req.query.userId as string;
 
-  if (!userId) {
+  if (!userIdParam) {
     return res.status(400).json({ code: 400, message: "Bad request params" });
   }
 
-  const user = database.users!.findById(+userId);
+  const userId = parseInt(userIdParam, 10);
+  if (isNaN(userId)) {
+    return res
+      .status(400)
+      .json({ code: 400, message: "Bad request param for userId" });
+  }
+
+  const user = database.users!.findById(userId);
   if (!user) {
     return res
       .status(404)
