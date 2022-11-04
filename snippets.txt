@@ -1,3 +1,9 @@
+https://www.paigeniedringhaus.com/blog/how-to-unit-test-next-js-api-routes-with-typescript
+
+// https://dev.to/maciekgrzybek/setup-next-js-with-typescript-jest-and-react-testing-library-28g5
+// https://blog.logrocket.com/testing-next-js-apps-jest/
+//
+
 BS5 canvas
 https://library.livecanvas.com/sections/
 
