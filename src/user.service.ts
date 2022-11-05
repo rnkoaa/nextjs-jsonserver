@@ -54,4 +54,14 @@ export class UserService {
   findPosts(id: number): Post[] {
     return this.postService.findByUser(id);
   }
+
+  countPosts(userId: number): number {
+    return this.postService.findByUser(userId).length;
+  }
+  countAlbums(userId: number): number {
+    return this.albumService.findByUser(userId).length;
+  }
+  countTodos(userId: number): number {
+    return this.todoService.findByUser(userId).length;
+  }
 }
