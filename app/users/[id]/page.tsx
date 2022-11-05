@@ -5,6 +5,8 @@ import { use } from "react";
 import { UserSummary } from "../../../src";
 import UserActivitySummaryCard from "./user-activity-summary-card";
 import UserInboxCard from "./user-inbox-card";
+import UserPostsCard from "./user-posts-card"
+import UserTeamMembersCard from "./user-team-members";
 
 const getUser = async (id: number): Promise<UserSummary> => {
   // try {
@@ -43,12 +45,13 @@ const Page = ({ params }: ParamProp) => {
               posts={posts}
             />
           }
-          {/* {<UserTeamMembersCard />} */}
+          <UserTeamMembersCard />} 
           {/* {<UserUpcomingEvents />} */}
         </div>
 
         <div className="col-xl-6">
           {<UserInboxCard userId={id} />}
+          {<UserPostsCard userId={id} />}
           {/* {<PostForm />} */}
           {/* {<ThreadedComments />} */}
           {/* {<CommentWithImage />} */}

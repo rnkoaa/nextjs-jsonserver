@@ -1,4 +1,14 @@
-const UserTeamMembersCard = () => {
+import { NextPage } from "next";
+import { Album } from "../../../src";
+
+interface AlbumProp {
+  userId: number
+}
+
+// const getUserAlbums(userId: number): Promise<Album[]> {
+//   fetch("http://jsonplaceholder.typicode.com/albums")
+// }
+const UserTeamMembersCard: NextPage<AlbumProp> = ({userId}) => {
   return (
     <div className="card">
       <div className="card-body">
@@ -12,23 +22,24 @@ const UserTeamMembersCard = () => {
             <i className="mdi mdi-dots-vertical"></i>
           </a>
           <div className="dropdown-menu dropdown-menu-end">
-            <a href="javascript:void(0);" className="dropdown-item">
+            <a href="#" className="dropdown-item">
               Sales Report
             </a>
-            <a href="javascript:void(0);" className="dropdown-item">
+            <a href="#" className="dropdown-item">
               Export Report
             </a>
-            <a href="javascript:void(0);" className="dropdown-item">
+            <a href="#" className="dropdown-item">
               Profit
             </a>
-            <a href="javascript:void(0);" className="dropdown-item">
+            <a href="#" className="dropdown-item">
               Action
             </a>
           </div>
         </div>
 
         <h4 className="header-title mb-3">
-          Team Members <i className="mdi mdi-account-multiple ms-1"></i>
+          Albums
+          <i className="mdi mdi-account-multiple ms-1"></i>
         </h4>
 
         <div className="list-group">

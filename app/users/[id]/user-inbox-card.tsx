@@ -12,9 +12,7 @@ const getUserTodos = async (userId: number): Promise<Todo[]> => {
   return res.json();
 };
 const UserInboxCard: NextPage<Props> = ({ userId }) => {
-  console.log(`User Id for requests ${userId}`);
   const todos = use(getUserTodos(userId));
-  console.log(todos);
 
   return (
     <div className="card">
@@ -24,7 +22,7 @@ const UserInboxCard: NextPage<Props> = ({ userId }) => {
         <div
           className="inbox-widget"
           data-simplebar="init"
-          style={{ ["max-height" as any]: "350px" }}
+          style={{ ["max-height" as any]: "600px" }}
         >
           <div
             className="simplebar-wrapper"
