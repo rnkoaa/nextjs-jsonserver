@@ -55,6 +55,11 @@ export class UserService {
     return this.postService.findByUser(id);
   }
 
+  findPostsWithLimit(id: number, limit: number): Post[] {
+    const posts = this.postService.findByUser(id);
+    return posts.slice(0, limit);
+  }
+
   countPosts(userId: number): number {
     return this.postService.findByUser(userId).length;
   }

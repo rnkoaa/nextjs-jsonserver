@@ -1,14 +1,18 @@
 import { NextPage } from "next";
+import { use } from "react";
 import { Album } from "../../../src";
 
 interface AlbumProp {
-  userId: number
+  userId: number;
 }
 
-// const getUserAlbums(userId: number): Promise<Album[]> {
-//   fetch("http://jsonplaceholder.typicode.com/albums")
-// }
-const UserTeamMembersCard: NextPage<AlbumProp> = ({userId}) => {
+const getUserAlbums = async (userId: number): Promise<Album[]> => {
+  const res = await fetch(`http://localhost:3000/api/users/${userId}/albums`);
+  return res.json();
+};
+const UserTeamMembersCard: NextPage<AlbumProp> = ({ userId }) => {
+  const albums = use(getUserAlbums(userId));
+
   return (
     <div className="card">
       <div className="card-body">
@@ -43,77 +47,22 @@ const UserTeamMembersCard: NextPage<AlbumProp> = ({userId}) => {
         </h4>
 
         <div className="list-group">
-          <a href="#" className="list-group-item list-group-item-action">
-            <div
-              className="d-flex align-items-center pb-1"
-              id="tooltips-container"
-            >
-              <img
-                src="https://bootdey.com/img/Content/avatar/avatar5.png"
-                className="rounded-circle img-fluid avatar-md img-thumbnail bg-transparent"
-                alt=""
-              />
-              <div className="w-100 ms-2">
-                <h5 className="mb-1">
-                  Herbert Stewart
-                  <i className="mdi mdi-check-decagram text-info ms-1"></i>
-                </h5>
-                <p className="mb-0 font-13 text-muted">Co Founder</p>
+          {albums.map((album) => (
+            <a key={album.id} href="#" className="list-group-item list-group-item-action">
+              <div
+                className="d-flex align-items-center pb-1"
+                id="tooltips-container"
+              >
+                <div className="w-100 ms-2">
+                  <h5 className="mb-1">
+                    {album.title}
+                    <i className="mdi mdi-check-decagram text-info ms-1"></i>
+                  </h5>
+                </div>
+                <i className="mdi mdi-chevron-right h2"></i>
               </div>
-              <i className="mdi mdi-chevron-right h2"></i>
-            </div>
-          </a>
-          <a href="#" className="list-group-item list-group-item-action">
-            <div
-              className="d-flex align-items-center pb-1"
-              id="tooltips-container"
-            >
-              <img
-                src="https://bootdey.com/img/Content/avatar/avatar3.png"
-                className="rounded-circle img-fluid avatar-md img-thumbnail bg-transparent"
-                alt=""
-              />
-              <div className="w-100 ms-2">
-                <h5 className="mb-1">Terry Mouser</h5>
-                <p className="mb-0 font-13 text-muted">Web Designer</p>
-              </div>
-              <i className="mdi mdi-chevron-right h2"></i>
-            </div>
-          </a>
-          <a href="#" className="list-group-item list-group-item-action">
-            <div
-              className="d-flex align-items-center pb-1"
-              id="tooltips-container"
-            >
-              <img
-                src="https://bootdey.com/img/Content/avatar/avatar8.png"
-                className="rounded-circle img-fluid avatar-md img-thumbnail bg-transparent"
-                alt=""
-              />
-              <div className="w-100 ms-2">
-                <h5 className="mb-1">Adam Barney</h5>
-                <p className="mb-0 font-13 text-muted">PHP Developer</p>
-              </div>
-              <i className="mdi mdi-chevron-right h2"></i>
-            </div>
-          </a>
-          <a href="#" className="list-group-item list-group-item-action">
-            <div
-              className="d-flex align-items-center pb-1"
-              id="tooltips-container"
-            >
-              <img
-                src="https://bootdey.com/img/Content/avatar/avatar6.png"
-                className="rounded-circle img-fluid avatar-md img-thumbnail bg-transparent"
-                alt=""
-              />
-              <div className="w-100 ms-2">
-                <h5 className="mb-1">Michal Chang</h5>
-                <p className="mb-0 font-13 text-muted">UI/UX Designer</p>
-              </div>
-              <i className="mdi mdi-chevron-right h2"></i>
-            </div>
-          </a>
+            </a>
+          ))}
         </div>
       </div>
     </div>

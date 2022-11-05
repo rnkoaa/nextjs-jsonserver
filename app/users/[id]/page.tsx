@@ -45,7 +45,7 @@ const Page = ({ params }: ParamProp) => {
               posts={posts}
             />
           }
-          <UserTeamMembersCard />} 
+          {<UserTeamMembersCard userId={id} />} 
           {/* {<UserUpcomingEvents />} */}
         </div>
 
@@ -53,7 +53,6 @@ const Page = ({ params }: ParamProp) => {
           {<UserInboxCard userId={id} />}
           {<UserPostsCard userId={id} />}
           {/* {<PostForm />} */}
-          {/* {<ThreadedComments />} */}
           {/* {<CommentWithImage />} */}
           {/* {<CommentWithVideo />} */}
           {/* {<LoadMoreComments />} */}

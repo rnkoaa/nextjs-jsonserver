@@ -1,4 +1,3 @@
-
 import { database } from "../../../../db";
 
 import { NextApiRequest, NextApiResponse } from "next";
