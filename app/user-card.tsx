@@ -1,7 +1,7 @@
 import "./styles.module.css";
 
-import { User } from "./page";
 import Link from "next/link";
+import { User } from "../src/shared/user.model";
 
 type UserCardProps = {
   user: User;

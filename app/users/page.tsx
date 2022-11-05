@@ -1,4 +1,5 @@
 import { use } from "react"
+import { User } from "../../src/shared/user.model"
 
 const getUsers = async () => {
 	try {
@@ -10,13 +11,13 @@ const getUsers = async () => {
 	return []
 }
 
-
 const Page = () => {
 	const users = use(getUsers())
+
 	return (
 		<div>
 			{
-				users.map((u) => (
+        users.map((u: User) => (
 					<div key={u.id}>{u.name}</div>
 				))
 			}

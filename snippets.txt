@@ -1,3 +1,5 @@
+[Testing] https://www.paigeniedringhaus.com/blog/how-to-unit-test-next-js-api-routes-with-typescript
+
 [Import/Export] cleanup
 
 https://stackoverflow.com/questions/55168751/import-multiple-named-exports-of-module-into-a-single-object

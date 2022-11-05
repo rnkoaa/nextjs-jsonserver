@@ -1,9 +1,9 @@
 import { use } from "react";
+import { User } from "../src/shared/user.model";
 import "./styles.module.css";
 import UserCard from "./user-card";
 import UserPagination from "./user-pagination";
 
-import { User } from "../types";
 const getUsers = async (): Promise<User[]> => {
   const userData = await fetch("http://localhost:3000/api/users");
   return userData.json();

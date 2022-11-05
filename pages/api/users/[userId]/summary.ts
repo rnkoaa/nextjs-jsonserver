@@ -1,18 +1,15 @@
 import { database } from "../../db";
 import { NextApiRequest, NextApiResponse } from "next";
-import { User } from "../../../../src/shared/user.model";
 import { ErrorMessage } from "../../../shared";
+import { UserSummary } from "../../../../src/shared/user-summary.model";
 
-export interface UserSummary {
-  todos: number;
-  albums: number;
-  posts: number;
-  user: User;
-}
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<UserSummary | ErrorMessage | null>
 ) {
+  if (!database.initialized) {
+    await database.onLoad();
+  }
   const userIdParam: string = req.query.userId as string;
 
   if (!userIdParam) {
@@ -26,12 +23,10 @@ export default async function handler(
       .json({ code: 400, message: "Bad request param for userId" });
   }
 
-  const userService = database.users!;
-
-  const user = userService.findById(userId);
-  const todos = userService.countTodos(userId);
-  const albums = userService.countAlbums(userId);
-  const posts = userService.countPosts(userId);
+  const user = database.users!.findById(userId);
+  const todos = database.users!.countTodos(userId);
+  const albums = database.users!.countAlbums(userId);
+  const posts = database.users!.countPosts(userId);
   if (!user) {
     return res
       .status(404)

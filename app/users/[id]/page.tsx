@@ -1,36 +1,52 @@
 import "./styles.css";
 
-import PostForm from "./post-form";
-import ThreadedComments from "./threaded-comments";
-import CommentWithImage from "./comment-with-image";
-import CommentWithVideo from "./comment-with-video";
-import LoadMoreComments from "./load-more-comments";
-import UserActivitySummaryCard from "./user-activity-summary-card";
 import UserSummaryCard from "./user-summary-card";
-import UserInboxCard from "./user-inbox-card";
-import UserTeamMembersCard from "./user-team-members";
-import UserUpcomingEvents from "./user-upcoming-events";
+import { use } from "react";
+import { UserSummary } from "../../../src";
 
-const Page = () => {
+const getUser = async (id: number): Promise<UserSummary> => {
+  // try {
+  const res = await fetch(`http://localhost:3000/api/users/${id}/summary`);
+  return res.json();
+  // } catch (error) {
+  //   console.log(error);
+  // }
+  // return {todos: 0, posts: 0, albums: 0, user: null};
+};
+// const fetchUser = async (id: number): UserSummary =>
+//   await fetch().then((res) => res.json());
+
+interface UserParam {
+  id: number;
+}
+
+interface ParamProp {
+  params: UserParam;
+}
+
+const Page = ({ params }: ParamProp) => {
+  const { id } = params;
+  const userSummary = use(getUser(id));
+
   return (
     <div className="container">
       <div className="row">
         <div className="col-xl-6">
-          {<UserSummaryCard />}
-          {<UserActivitySummaryCard />}
-          {<UserInboxCard />}
-          {<UserTeamMembersCard />}
-          {<UserUpcomingEvents />}
+          {<UserSummaryCard userSummary={userSummary} />}
+          {/* {<UserActivitySummaryCard />} */}
+          {/* {<UserInboxCard />} */}
+          {/* {<UserTeamMembersCard />} */}
+          {/* {<UserUpcomingEvents />} */}
         </div>
 
         <div className="col-xl-6">
           <div className="card">
             <div className="card-body">
-              {<PostForm />}
-              {<ThreadedComments />}
-              {<CommentWithImage />}
-              {<CommentWithVideo />}
-              {<LoadMoreComments />}
+              {/* {<PostForm />} */}
+              {/* {<ThreadedComments />} */}
+              {/* {<CommentWithImage />} */}
+              {/* {<CommentWithVideo />} */}
+              {/* {<LoadMoreComments />} */}
             </div>
           </div>
         </div>
