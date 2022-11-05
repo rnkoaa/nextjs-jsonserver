@@ -2,7 +2,7 @@ const UserInboxCard = () => {
   return (
     <div className="card">
       <div className="card-body">
-        <h4 className="header-title mb-3">Inbox</h4>
+        <h4 className="header-title mb-3">Todos</h4>
 
         <div
           className="inbox-widget"
@@ -51,7 +51,7 @@ const UserInboxCard = () => {
                         </p>
                       </div>
                       <a
-                        href="javascript:(0);"
+                        href="#"
                         className="btn btn-sm btn-soft-info font-13"
                         data-bs-container="#tooltips-container"
                         data-bs-toggle="tooltip"
@@ -77,7 +77,7 @@ const UserInboxCard = () => {
                         <p className="mb-0 font-13">This theme is awesome!</p>
                       </div>
                       <a
-                        href="javascript:(0);"
+                        href="#"
                         className="btn btn-sm btn-soft-info font-13"
                         data-bs-container="#tooltips-container1"
                         data-bs-toggle="tooltip"
@@ -105,7 +105,7 @@ const UserInboxCard = () => {
                         </p>
                       </div>
                       <a
-                        href="javascript:(0);"
+                        href="#"
                         className="btn btn-sm btn-soft-info font-13"
                         data-bs-container="#tooltips-container2"
                         data-bs-toggle="tooltip"
@@ -131,7 +131,7 @@ const UserInboxCard = () => {
                         <p className="mb-0 font-13">Nice to meet you</p>
                       </div>
                       <a
-                        href="javascript:(0);"
+                        href="#"
                         className="btn btn-sm btn-soft-info font-13"
                         data-bs-container="#tooltips-container3"
                         data-bs-toggle="tooltip"
@@ -157,7 +157,7 @@ const UserInboxCard = () => {
                         <p className="mb-0 font-13">This theme is awesome!</p>
                       </div>
                       <a
-                        href="javascript:(0);"
+                        href="#"
                         className="btn btn-sm btn-soft-info font-13"
                         data-bs-container="#tooltips-container4"
                         data-bs-toggle="tooltip"
@@ -185,7 +185,7 @@ const UserInboxCard = () => {
                         </p>
                       </div>
                       <a
-                        href="javascript:(0);"
+                        href="#"
                         className="btn btn-sm btn-soft-info font-13"
                         data-bs-container="#tooltips-container5"
                         data-bs-toggle="tooltip"
@@ -213,7 +213,7 @@ const UserInboxCard = () => {
                         </p>
                       </div>
                       <a
-                        href="javascript:(0);"
+                        href="#"
                         className="btn btn-sm btn-soft-info font-13"
                         data-bs-container="#tooltips-container6"
                         data-bs-toggle="tooltip"
@@ -239,7 +239,7 @@ const UserInboxCard = () => {
                         <p className="mb-0 font-13">This theme is awesome!</p>
                       </div>
                       <a
-                        href="javascript:(0);"
+                        href="#"
                         className="btn btn-sm btn-soft-info font-13"
                         data-bs-container="#tooltips-container7"
                         data-bs-toggle="tooltip"

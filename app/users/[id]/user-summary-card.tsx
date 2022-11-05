@@ -23,13 +23,13 @@ const UserSummaryCard: NextPage<Props> = ({ userSummary }: Props) => {
             <i className="mdi mdi-dots-vertical"></i>
           </a>
           <div className="dropdown-menu dropdown-menu-end">
-            <a href="javascript:void(0);" className="dropdown-item">
+            <a href="#" className="dropdown-item">
               Edit
             </a>
-            <a href="javascript:void(0);" className="dropdown-item">
+            <a href="#" className="dropdown-item">
               Delete
             </a>
-            <a href="javascript:void(0);" className="dropdown-item">
+            <a href="#" className="dropdown-item">
               Block
             </a>
           </div>
@@ -87,7 +87,7 @@ const UserSummaryCard: NextPage<Props> = ({ userSummary }: Props) => {
         <ul className="social-list list-inline mt-3 mb-0">
           <li className="list-inline-item">
             <a
-              href="javascript: void(0);"
+              href="#"
               className="social-list-item text-center border-primary text-primary"
             >
               <i className="mdi mdi-facebook"></i>
@@ -95,7 +95,7 @@ const UserSummaryCard: NextPage<Props> = ({ userSummary }: Props) => {
           </li>
           <li className="list-inline-item">
             <a
-              href="javascript: void(0);"
+              href="#"
               className="social-list-item text-center border-danger text-danger"
             >
               <i className="mdi mdi-google"></i>
@@ -103,7 +103,7 @@ const UserSummaryCard: NextPage<Props> = ({ userSummary }: Props) => {
           </li>
           <li className="list-inline-item">
             <a
-              href="javascript: void(0);"
+              href="#"
               className="social-list-item text-center border-info text-info"
             >
               <i className="mdi mdi-twitter"></i>
@@ -111,7 +111,7 @@ const UserSummaryCard: NextPage<Props> = ({ userSummary }: Props) => {
           </li>
           <li className="list-inline-item">
             <a
-              href="javascript: void(0);"
+              href="#"
               className="social-list-item text-center border-secondary text-secondary"
             >
               <i className="mdi mdi-github"></i>

@@ -3,6 +3,8 @@ import "./styles.css";
 import UserSummaryCard from "./user-summary-card";
 import { use } from "react";
 import { UserSummary } from "../../../src";
+import UserActivitySummaryCard from "./user-activity-summary-card";
+import UserInboxCard from "./user-inbox-card";
 
 const getUser = async (id: number): Promise<UserSummary> => {
   // try {
@@ -27,28 +29,31 @@ interface ParamProp {
 const Page = ({ params }: ParamProp) => {
   const { id } = params;
   const userSummary = use(getUser(id));
+  const { todos, albums, posts } = userSummary;
 
   return (
     <div className="container">
       <div className="row">
         <div className="col-xl-6">
           {<UserSummaryCard userSummary={userSummary} />}
-          {/* {<UserActivitySummaryCard />} */}
-          {/* {<UserInboxCard />} */}
+          {
+            <UserActivitySummaryCard
+              todos={todos}
+              albums={albums}
+              posts={posts}
+            />
+          }
           {/* {<UserTeamMembersCard />} */}
           {/* {<UserUpcomingEvents />} */}
         </div>
 
         <div className="col-xl-6">
-          <div className="card">
-            <div className="card-body">
-              {/* {<PostForm />} */}
-              {/* {<ThreadedComments />} */}
-              {/* {<CommentWithImage />} */}
-              {/* {<CommentWithVideo />} */}
-              {/* {<LoadMoreComments />} */}
-            </div>
-          </div>
+          {<UserInboxCard />}
+          {/* {<PostForm />} */}
+          {/* {<ThreadedComments />} */}
+          {/* {<CommentWithImage />} */}
+          {/* {<CommentWithVideo />} */}
+          {/* {<LoadMoreComments />} */}
         </div>
       </div>
     </div>
