@@ -1,4 +1,21 @@
-const UserInboxCard = () => {
+import { NextPage } from "next";
+import { use } from "react";
+import { Todo } from "../../../src/shared/todo.model";
+import TodoItem from "./todo-item";
+
+interface Props {
+  userId: number;
+}
+
+const getUserTodos = async (userId: number): Promise<Todo[]> => {
+  const res = await fetch(`http://localhost:3000/api/users/${userId}/todos`);
+  return res.json();
+};
+const UserInboxCard: NextPage<Props> = ({ userId }) => {
+  console.log(`User Id for requests ${userId}`);
+  const todos = use(getUserTodos(userId));
+  console.log(todos);
+
   return (
     <div className="card">
       <div className="card-body">
@@ -35,222 +52,9 @@ const UserInboxCard = () => {
                     className="simplebar-content"
                     style={{ ["padding" as any]: "0px" }}
                   >
-                    <div
-                      className="d-flex align-items-center pb-1"
-                      id="tooltips-container"
-                    >
-                      <img
-                        src="https://bootdey.com/img/Content/avatar/avatar2.png"
-                        className="rounded-circle img-fluid avatar-md img-thumbnail bg-transparent"
-                        alt=""
-                      />
-                      <div className="w-100 ms-3">
-                        <h5 className="mb-1">Tomaslau</h5>
-                        <p className="mb-0 font-13">
-                          I've finished it! See you so...
-                        </p>
-                      </div>
-                      <a
-                        href="#"
-                        className="btn btn-sm btn-soft-info font-13"
-                        data-bs-container="#tooltips-container"
-                        data-bs-toggle="tooltip"
-                        data-bs-placement="left"
-                        title=""
-                        data-bs-original-title="Reply"
-                      >
-                        {" "}
-                        <i className="mdi mdi-reply"></i>{" "}
-                      </a>
-                    </div>
-                    <div
-                      className="d-flex align-items-center py-1"
-                      id="tooltips-container1"
-                    >
-                      <img
-                        src="https://bootdey.com/img/Content/avatar/avatar3.png"
-                        className="rounded-circle img-fluid avatar-md img-thumbnail bg-transparent"
-                        alt=""
-                      />
-                      <div className="w-100 ms-3">
-                        <h5 className="mb-1">Stillnotdavid</h5>
-                        <p className="mb-0 font-13">This theme is awesome!</p>
-                      </div>
-                      <a
-                        href="#"
-                        className="btn btn-sm btn-soft-info font-13"
-                        data-bs-container="#tooltips-container1"
-                        data-bs-toggle="tooltip"
-                        data-bs-placement="left"
-                        title=""
-                        data-bs-original-title="Reply"
-                      >
-                        {" "}
-                        <i className="mdi mdi-reply"></i>{" "}
-                      </a>
-                    </div>
-                    <div
-                      className="d-flex align-items-center py-1"
-                      id="tooltips-container2"
-                    >
-                      <img
-                        src="https://bootdey.com/img/Content/avatar/avatar4.png"
-                        className="rounded-circle img-fluid avatar-md img-thumbnail bg-transparent"
-                        alt=""
-                      />
-                      <div className="w-100 ms-3">
-                        <h5 className="mb-1">Shahedk</h5>
-                        <p className="mb-0 font-13">
-                          Hey! there I'm available...
-                        </p>
-                      </div>
-                      <a
-                        href="#"
-                        className="btn btn-sm btn-soft-info font-13"
-                        data-bs-container="#tooltips-container2"
-                        data-bs-toggle="tooltip"
-                        data-bs-placement="left"
-                        title=""
-                        data-bs-original-title="Reply"
-                      >
-                        {" "}
-                        <i className="mdi mdi-reply"></i>{" "}
-                      </a>
-                    </div>
-                    <div
-                      className="d-flex align-items-center py-1"
-                      id="tooltips-container3"
-                    >
-                      <img
-                        src="https://bootdey.com/img/Content/avatar/avatar5.png"
-                        className="rounded-circle img-fluid avatar-md img-thumbnail bg-transparent"
-                        alt=""
-                      />
-                      <div className="w-100 ms-3">
-                        <h5 className="mb-1">Kurafire</h5>
-                        <p className="mb-0 font-13">Nice to meet you</p>
-                      </div>
-                      <a
-                        href="#"
-                        className="btn btn-sm btn-soft-info font-13"
-                        data-bs-container="#tooltips-container3"
-                        data-bs-toggle="tooltip"
-                        data-bs-placement="left"
-                        title=""
-                        data-bs-original-title="Reply"
-                      >
-                        {" "}
-                        <i className="mdi mdi-reply"></i>{" "}
-                      </a>
-                    </div>
-                    <div
-                      className="d-flex align-items-center py-1"
-                      id="tooltips-container4"
-                    >
-                      <img
-                        src="https://bootdey.com/img/Content/avatar/avatar6.png"
-                        className="rounded-circle img-fluid avatar-md img-thumbnail bg-transparent"
-                        alt=""
-                      />
-                      <div className="w-100 ms-3">
-                        <h5 className="mb-1">Adhamdannaway</h5>
-                        <p className="mb-0 font-13">This theme is awesome!</p>
-                      </div>
-                      <a
-                        href="#"
-                        className="btn btn-sm btn-soft-info font-13"
-                        data-bs-container="#tooltips-container4"
-                        data-bs-toggle="tooltip"
-                        data-bs-placement="left"
-                        title=""
-                        data-bs-original-title="Reply"
-                      >
-                        {" "}
-                        <i className="mdi mdi-reply"></i>{" "}
-                      </a>
-                    </div>
-                    <div
-                      className="d-flex align-items-center py-1"
-                      id="tooltips-container5"
-                    >
-                      <img
-                        src="https://bootdey.com/img/Content/avatar/avatar7.png"
-                        className="rounded-circle img-fluid avatar-md img-thumbnail bg-transparent"
-                        alt=""
-                      />
-                      <div className="w-100 ms-3">
-                        <h5 className="mb-1">Tomaslau</h5>
-                        <p className="mb-0 font-13">
-                          I've finished it! See you so...
-                        </p>
-                      </div>
-                      <a
-                        href="#"
-                        className="btn btn-sm btn-soft-info font-13"
-                        data-bs-container="#tooltips-container5"
-                        data-bs-toggle="tooltip"
-                        data-bs-placement="left"
-                        title=""
-                        data-bs-original-title="Reply"
-                      >
-                        {" "}
-                        <i className="mdi mdi-reply"></i>{" "}
-                      </a>
-                    </div>
-                    <div
-                      className="d-flex align-items-center py-1"
-                      id="tooltips-container6"
-                    >
-                      <img
-                        src="https://bootdey.com/img/Content/avatar/avatar8.png"
-                        className="rounded-circle img-fluid avatar-md img-thumbnail bg-transparent"
-                        alt=""
-                      />
-                      <div className="w-100 ms-3">
-                        <h5 className="mb-1">Shahedk</h5>
-                        <p className="mb-0 font-13">
-                          Hey! there I'm available...
-                        </p>
-                      </div>
-                      <a
-                        href="#"
-                        className="btn btn-sm btn-soft-info font-13"
-                        data-bs-container="#tooltips-container6"
-                        data-bs-toggle="tooltip"
-                        data-bs-placement="left"
-                        title=""
-                        data-bs-original-title="Reply"
-                      >
-                        {" "}
-                        <i className="mdi mdi-reply"></i>{" "}
-                      </a>
-                    </div>
-                    <div
-                      className="d-flex align-items-center pt-1"
-                      id="tooltips-container7"
-                    >
-                      <img
-                        src="https://bootdey.com/img/Content/avatar/avatar5.png"
-                        className="rounded-circle img-fluid avatar-md img-thumbnail bg-transparent"
-                        alt=""
-                      />
-                      <div className="w-100 ms-3">
-                        <h5 className="mb-1">Stillnotdavid</h5>
-                        <p className="mb-0 font-13">This theme is awesome!</p>
-                      </div>
-                      <a
-                        href="#"
-                        className="btn btn-sm btn-soft-info font-13"
-                        data-bs-container="#tooltips-container7"
-                        data-bs-toggle="tooltip"
-                        data-bs-placement="left"
-                        title=""
-                        data-bs-original-title="Reply"
-                      >
-                        {" "}
-                        <i className="mdi mdi-reply"></i>{" "}
-                      </a>
-                    </div>
+                    {todos.map((todo) => (
+                      <TodoItem todo={todo} key={todo.id} />
+                    ))}
                   </div>
                 </div>
               </div>
@@ -295,4 +99,3 @@ const UserInboxCard = () => {
 };
 
 export default UserInboxCard;
-

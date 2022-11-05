@@ -48,7 +48,7 @@ const Page = ({ params }: ParamProp) => {
         </div>
 
         <div className="col-xl-6">
-          {<UserInboxCard />}
+          {<UserInboxCard userId={id} />}
           {/* {<PostForm />} */}
           {/* {<ThreadedComments />} */}
           {/* {<CommentWithImage />} */}
