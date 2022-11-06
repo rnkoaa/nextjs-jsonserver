@@ -9,16 +9,9 @@ import UserPostsCard from "./user-posts-card"
 import UserTeamMembersCard from "./user-team-members";
 
 const getUser = async (id: number): Promise<UserSummary> => {
-  // try {
   const res = await fetch(`http://localhost:3000/api/users/${id}/summary`);
   return res.json();
-  // } catch (error) {
-  //   console.log(error);
-  // }
-  // return {todos: 0, posts: 0, albums: 0, user: null};
 };
-// const fetchUser = async (id: number): UserSummary =>
-//   await fetch().then((res) => res.json());
 
 interface UserParam {
   id: number;
@@ -46,16 +39,11 @@ const Page = ({ params }: ParamProp) => {
             />
           }
           {<UserTeamMembersCard userId={id} />} 
-          {/* {<UserUpcomingEvents />} */}
         </div>
 
         <div className="col-xl-6">
           {<UserInboxCard userId={id} />}
           {<UserPostsCard userId={id} />}
-          {/* {<PostForm />} */}
-          {/* {<CommentWithImage />} */}
-          {/* {<CommentWithVideo />} */}
-          {/* {<LoadMoreComments />} */}
         </div>
       </div>
     </div>

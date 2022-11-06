@@ -69,14 +69,14 @@ const UserSummaryCard: NextPage<Props> = ({ userSummary }: Props) => {
             <span className="ms-2">{user.name}</span>
           </p>
 
-          {user.phone && <p className="text-muted mb-2 font-13">
-            <strong>Mobile :</strong>
-            <span className="ms-2">{user.phone}</span>
-          </p>
-}
+          {user.phone && (
+            <p className="text-muted mb-2 font-13">
+              <strong>Mobile :</strong>
+              <span className="ms-2">{user.phone}</span>
+            </p>
+          )}
           <p className="text-muted mb-2 font-13">
-            <strong>Email :</strong>{" "}
-            <span className="ms-2">{user.email}</span>
+            <strong>Email :</strong> <span className="ms-2">{user.email}</span>
           </p>
 
           <p className="text-muted mb-1 font-13">
@@ -119,7 +119,8 @@ const UserSummaryCard: NextPage<Props> = ({ userSummary }: Props) => {
           </li>
         </ul>
       </div>
-    </div>)
+    </div>
+  );
 };
 
 export default UserSummaryCard;
