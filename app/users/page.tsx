@@ -17,7 +17,7 @@ const Page = () => {
 	return (
 		<div>
 			{
-        users.map((u: User) => (
+				users.map((u: User) => (
 					<div key={u.id}>{u.name}</div>
 				))
 			}
